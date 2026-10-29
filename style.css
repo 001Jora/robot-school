@@ -1,0 +1,335 @@
+/* Общие настройки */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f4f7fc;
+  color: #17233b;
+}
+
+a {
+  color: #234bc4;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+section {
+  padding: 3rem 6%;
+}
+
+/* Шапка и меню */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 6%;
+  background: #ffffff;
+}
+
+header > a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Главный экран */
+.hero {
+  padding-block: 5rem;
+  text-align: center;
+  background: #e5edff;
+}
+
+.hero h1 {
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+.hero p {
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+}
+
+/* Кнопки */
+.button {
+  display: inline-block;
+  padding: 0.9rem 1.4rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: #234bc4;
+  color: #ffffff;
+  font: inherit;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #18378f;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 0.2rem solid #a34200;
+  outline-offset: 0.25rem;
+}
+
+/* Карточки: одна колонка на телефоне */
+.program-grid,
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 0.0625rem solid #d5ddec;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 0.4rem 1.2rem #17233b0d;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #234bc4;
+}
+
+/* Форма записи */
+#signup {
+  background: #e5edff;
+}
+
+.signup-form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 32rem;
+  margin-inline: auto;
+}
+
+.signup-form label {
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.85rem;
+  border: 0.125rem solid #66758c;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  color: #17233b;
+  font: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 0.2rem solid #234bc4;
+  outline-offset: 0.15rem;
+}
+
+/* Подсказки после взаимодействия с полем */
+input:user-invalid,
+select:user-invalid {
+  border-color: #b42318;
+}
+
+input:user-valid,
+select:user-valid {
+  border-color: #207044;
+}
+
+.signup-form .button {
+  margin-top: 1rem;
+}
+
+/* Нижняя часть страницы */
+footer {
+  padding: 2rem 6%;
+  background: #17233b;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Расположение на больших экранах */
+@media (min-width: 1024px) {
+  .program-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .price-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Кнопка мобильного меню */
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  min-height: 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #234bc4;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* На телефоне меню сначала скрыто */
+#main-nav {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+}
+
+#main-nav.is-open {
+  display: flex;
+}
+
+#main-nav a {
+  padding: 0.75rem;
+}
+
+/* На компьютере меню всегда видно */
+@media (min-width: 1024px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  #main-nav {
+    display: flex;
+    width: auto;
+    flex-direction: row;
+  }
+}
+
+/* Тёмная тема */
+body.dark-theme {
+  background: #101827;
+  color: #e8eef8;
+  color-scheme: dark;
+}
+
+body.dark-theme header,
+body.dark-theme .card {
+  background: #1b2940;
+}
+
+body.dark-theme .hero,
+body.dark-theme #signup {
+  background: #152238;
+}
+
+body.dark-theme .card {
+  border-color: #526580;
+}
+
+body.dark-theme a,
+body.dark-theme .card h3 {
+  color: #a9c5ff;
+}
+
+body.dark-theme input,
+body.dark-theme select {
+  background: #101827;
+  color: #e8eef8;
+  border-color: #91a1b8;
+}
+
+body.dark-theme .button,
+body.dark-theme .menu-toggle {
+  background: #a9c5ff;
+  color: #101827;
+}
+
+body.dark-theme .button:hover,
+body.dark-theme .menu-toggle:hover {
+  background: #c8daff;
+}
+
+body.dark-theme :focus-visible {
+  outline-color: #ffca80;
+}
+
+body.dark-theme input:user-invalid,
+body.dark-theme select:user-invalid {
+  border-color: #ff9b94;
+}
+
+body.dark-theme input:user-valid,
+body.dark-theme select:user-valid {
+  border-color: #7bddaa;
+}
+
+/* Иллюстрация главного экрана */
+.hero-robot {
+  display: block;
+  width: min(70%, 18rem);
+  height: auto;
+  margin: 0 auto 1.5rem;
+}
+
+/* Телефон в шапке */
+header .header-phone {
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+/* Контактная информация */
+footer address {
+  font-style: normal;
+}
+
+footer a {
+  color: #c8daff;
+}
+
+.footer-nav {
+  justify-content: center;
+  margin-block: 1.5rem;
+}
+
+footer .button {
+  margin-top: 1rem;
+}
